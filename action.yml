@@ -1,0 +1,9 @@
+name: Checkout git submodules
+description: Checkout git submodules using ssh deploy keys passed as environment variables
+runs:
+  using: "composite"
+  steps:
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: submodules_checkout.sh
+      shell: bash
